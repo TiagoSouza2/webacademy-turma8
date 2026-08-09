@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Fomulário de Contato</h1>
+    <form action="" method="">
+        <fieldset>
+            <legend>Dados Básicos</legend>
+            <div>
+                <label for ="nome">Nome </label> 
+                <input type="text" name="nome">
+            </div>
+            <div>
+                <label for ="email">E-mail </label>
+                <input type="email" name="email" placeholder="seunome@dominio.com.br">
+            </div>
+            <div>
+                <label for ="website">Website </label>
+                <input type="url" name="website" value="http://">
+            </div>
+        </fieldset>
+        <fieldset>
+            <legend>Seu curso no Instituto de Computação</legend>
+            <div>
+                <input type="radio" name="curso" value="cc">
+                <label for="cc">Ciência da Computação</label>
+            </div>
+            <div>
+                <input type="radio" name="curso" value="si">
+                <label for="si">Sistema de Informação</label>
+            </div>
+            <div>
+                <input type="radio" name="curso" value="ec">
+                <label for="ec">Engenharia da Computação</label>
+            </div>
+        </fieldset>
+        <fieldset>
+            <legend>Assinale as linguagens já usadas por você:</legend>
+            <label for="java">Java</label>
+            <input type="checkbox" name="ling" id="java" value="java">
+            <label for="c">C</label>
+            <input type="checkbox" name="ling" id="c" value="c">
+            <label for="cpp">C++</label>
+            <input type="checkbox" name="ling" id="cpp" value="cpp">
+            <label for="perl">Perl</label>
+            <input type="checkbox" name="ling" id="perl" value="perl">
+            <label for="python">Python</label>
+            <input type="checkbox" name="ling" id="python" value="python">
+            <label for="js">Javascript</label>
+            <input type="checkbox" name="ling" id="js" value="js">
+        </fieldset>
+        <fieldset>
+            <legend>Dados complementares</legend>
+            <div>
+                <label for ="Cor favorita">Cor favorita</label> 
+                <input type="color" name="corfav">
+            </div>
+            <div>
+                <label for ="Data de nascimento">Data de nascimento</label>
+                <input type="date" name="date">
+            </div>
+            <div>
+                <label for ="Ano de entrada em seu curso IComp">Ano de entrada em seu curso IComp</label>
+                <input type="text" name="ano" value="2020">
+            </div>
+            <div>
+                <label for ="Nota para este site">Nota para este site</label>
+                <input type="range" name="nota" value="0">
+
+            </div>
+        </fieldset>
+        <fieldset>
+            <legend>Área de atuação</legend>
+            <div>
+                <select name="area" id="area">
+                    <option value="1">Banco de Dados</option>
+                    <option value="2">Educação a Distância</option>
+                    <option value="3">Engenharia de Software</option>
+                    <option value="4">Otimização</option>
+                    <option value="5">Programação para a Web</option>
+                    <option value="6">Recuperação de Informação</option>
+                    <option value="7">Redes de Computadores</option>
+                </select>
+            </div>
+        </fieldset>
+        <fieldset>
+            <legend>Submeta seu curriculo vitae</legend>
+            <div>
+                <input type="file" name="file" placeholder="Choose file">
+            </div>
+        </fieldset>
+        <fieldset>
+            <legend>Escreva seu mensagem</legend>
+            <div>
+                <textarea name="mensagem" rows="7" cols="78">Este é o valor padrão!</textarea>
+            </div>
+        </fieldset>
+        <br/>
+        <div>
+            <input type="reset" name="resetar" value="Resetar Dados" />
+            <input type="submit" name="submit" value="Enviar Mensagem" />
+        </div>
+    </form>
+</body>
+</html>
