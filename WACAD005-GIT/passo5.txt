@@ -1,1 +1,2 @@
 Passo 5 do lab de versionamento
+Passo 12 - Editando o conteúdo de um dos arquivos da main

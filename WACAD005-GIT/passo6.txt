@@ -1,2 +1,3 @@
 Passo 6 - Laboratório de versionamento
 Passo 10 - movendo e mudando conteúdo
+Passo 14 - Editando arquvio da branch criada no passo 8
