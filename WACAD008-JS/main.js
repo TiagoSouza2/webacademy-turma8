@@ -2,10 +2,25 @@ const customName = document.getElementById('customname');
 const randomize = document.querySelector('.randomize');
 const story = document.querySelector('.story');
 
-const storyText = "It was 94 fahrenheit outside, so :insertx: went for a walk. When they got to :inserty:, they stared in horror for a few moments, then :insertz:. Bob saw the whole thing, but was not surprised — :insertx: weighs 300 pounds, and it was a hot day."
-var insertX = ["Willy the Goblin", "Big Daddy", "Father Christmas"];
-var insertY = ["the soup kitchen", "Disneyland", "the White House"];
-var insertZ = ["spontaneously combusted", "melted into a puddle on the sidewalk", "turned into a slug and crawled away"];
+const storyText = "Durante uma batalha intensa, :insertx: decidiu seguir em frente sozinho, mesmo com a temperatura de 94 fahrenheit e pesando 300 pounds. Quando chegou em :inserty:, ficou parado por alguns segundos e então :insertz:. Todo mundo ficou surpreso, mas aquilo parecia completamente normal para :insertx: e para Bob.";
+
+var insertX = [
+  "Naruto Uzumaki",
+  "Monkey D. Luffy",
+  "Goku"
+];
+
+var insertY = [
+  "uma vila ninja destruída",
+  "uma ilha misteriosa",
+  "um torneio de artes marciais"
+];
+
+var insertZ = [
+  "usou seu golpe mais poderoso",
+  "começou a gritar o nome de uma técnica",
+  "derrotou o inimigo de um jeito completamente inesperado"
+];
 
 function randomValueFromArray(array){
   const random = Math.floor(Math.random()*array.length);
