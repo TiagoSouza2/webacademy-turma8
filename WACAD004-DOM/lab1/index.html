@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrinho de Compra</title>
+  </head>  
+    <body>
+      <div id="resumo-carrinho">
+        <h2>Fechamento do Pedido</h2>
+        
+        <!-- Valores que o JS precisa ler -->
+        <label>Subtotal dos Produtos (R$):</label>
+        <input type="number" id="valor-subtotal" value="150.00">
+        <br><br>
+
+        <label>Valor do Frete (R$):</label>
+        <input type="number" id="valor-frete" value="25.50">
+        <br><br>
+
+        <!-- Lista para ser contada -->
+        <h3>Itens na sua caixa:</h3>
+        <ul id="lista-produtos">
+          <li class="produto-comprado">Camiseta Básica Preta</li>
+          <li class="produto-comprado">Calça Jeans Tradicional</li>
+          <li class="produto-comprado">Par de Meias Brancas</li>
+        </ul>
+      </div>
+        <script>
+            const formatter = new Intl.NumberFormat("pt-BR", {
+                style: "currency",
+                currency: "BRL",
+            });
+
+            let lista = document.getElementById("lista-produtos")
+            let subtotal = document.getElementById("valor-subtotal")
+            let frete = document.getElementById("valor-frete")
+
+            console.log(`
+            Quantidade de intens na caixa: ${lista.childElementCount}
+            Subtotal: ${formatter.format(subtotal.value)}
+            Frete: ${formatter.format(frete.value)}
+            Total a pagar: ${formatter.format(parseFloat(frete.value) + parseFloat(subtotal.value))}
+            `)
+
+        </script>
+    </body>
+</html>
