@@ -1,0 +1,2 @@
+NOTA: 7.0
+FEEDBACK: Nem todas as três barras de navegação propostas foram implementadas.
