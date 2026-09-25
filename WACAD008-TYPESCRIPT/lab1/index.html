@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <main>
+        <form id="reminderForm">
+
+            <div>
+                <label for="title">Título</label>
+
+                <input type="text" id="title" name="title" placeholder="Digite o título do lembrete" required>
+            </div>
+
+            <div>
+                <label for="description">Descrição</label>
+
+                <textarea id="description" name="description" rows="4" placeholder="Descreva a tarefa"></textarea>
+            </div>
+
+            <div>
+                <label for="deadline">Data limite</label>
+
+                <input type="datetime-local" id="deadline" name="deadline">
+            </div>
+
+            <button type="submit">
+                Cadastrar lembrete
+            </button>
+
+        </form>
+
+        <div id="remindersList">
+
+        </div>
+    </main>
+</body>
+<script type="module" src="./dist/main.js"></script>
+
+</html>
