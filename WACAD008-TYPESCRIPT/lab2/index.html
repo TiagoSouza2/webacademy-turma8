@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Estatísticas da Turma
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="./style.css"
+    >
+
+</head>
+
+
+<body>
+
+    <main>
+
+        <h1>
+            Turma de Educação Física
+        </h1>
+
+
+        <!-- ESTATÍSTICAS -->
+
+        <section id="statistics">
+
+            <h2>
+                Estatísticas da Turma
+            </h2>
+
+
+            <p>
+                Número de alunos:
+
+                <strong
+                    id="numAlunos"
+                >
+                    0
+                </strong>
+            </p>
+
+
+            <p>
+                Média das idades:
+
+                <strong
+                    id="mediaIdades"
+                >
+                    0
+                </strong>
+            </p>
+
+
+            <p>
+                Média das alturas:
+
+                <strong
+                    id="mediaAlturas"
+                >
+                    0
+                </strong>
+            </p>
+
+
+            <p>
+                Média dos pesos:
+
+                <strong
+                    id="mediaPesos"
+                >
+                    0
+                </strong>
+            </p>
+
+        </section>
+
+
+        <hr>
+
+
+        <!-- FORMULÁRIO -->
+
+        <h2>
+            Cadastrar aluno
+        </h2>
+
+
+        <form id="studentForm">
+
+
+            <div>
+
+                <label for="name">
+                    Nome completo
+                </label>
+
+                <input
+                    type="text"
+                    id="name"
+                    required
+                >
+
+            </div>
+
+
+            <div>
+
+                <label for="age">
+                    Idade
+                </label>
+
+                <input
+                    type="number"
+                    id="age"
+                    min="1"
+                    required
+                >
+
+            </div>
+
+
+            <div>
+
+                <label for="height">
+                    Altura (m)
+                </label>
+
+                <input
+                    type="number"
+                    id="height"
+                    min="0.1"
+                    step="0.01"
+                    required
+                >
+
+            </div>
+
+
+            <div>
+
+                <label for="weight">
+                    Peso (kg)
+                </label>
+
+                <input
+                    type="number"
+                    id="weight"
+                    min="0.1"
+                    step="0.1"
+                    required
+                >
+
+            </div>
+
+
+            <button
+                type="submit"
+                id="submitButton"
+            >
+                Cadastrar aluno
+            </button>
+
+
+            <button
+                type="button"
+                id="cancelButton"
+                hidden
+            >
+                Cancelar edição
+            </button>
+
+        </form>
+
+
+        <hr>
+
+
+        <!-- LISTA -->
+
+        <h2>
+            Alunos
+        </h2>
+
+
+        <div id="studentsList">
+
+        </div>
+
+    </main>
+
+
+    <script
+        type="module"
+        src="./dist/main.js"
+    ></script>
+
+</body>
+
+</html>
