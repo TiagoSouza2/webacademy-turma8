@@ -10,7 +10,7 @@ function getEnv() {
       choices: ['development', 'production'],
       default: 'development',
     }),
-    LOGS_FOLDER: str({default: "logs"})
+    LOGS_FOLDER: str({ default: 'logs' }),
   });
 }
 

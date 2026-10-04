@@ -42,7 +42,6 @@ const hb1 =  (req: Request, res: Response) => {
   const ufam = 'Universidade Federal do Amazonas';
   res.render('hb1', {
     mensagem: 'Olá!',
-    layout: false,
     ufam,
   });
 }
@@ -52,7 +51,6 @@ const hb2 = (req: Request, res: Response) => {
         poweredByNodejs: true,
         name: 'Express',
         type: 'Framework',
-        layout: false,
     });
 }
 
@@ -63,7 +61,7 @@ const hb3 = (req: Request, res: Response) => {
     { nome: 'Edleno Moura', sala: 1236 },
     { nome: 'Elaine Harada', sala: 1231 },
   ];
-  res.render('hb3', { profes, layout: false });
+  res.render('hb3', { profes});
 }
 
 const hb4 = (req: Request, res: Response) => {
@@ -73,7 +71,7 @@ const hb4 = (req: Request, res: Response) => {
     { name: 'Edleno Moura', room: 1236 },
     { name: 'Elaine Harada', room: 1231 },
   ];
-  res.render('hb4', { profs, layout: false });
+  res.render('hb4', { profs });
 }
 
 
