@@ -1,0 +1,16 @@
+$color: blue;
+$h1-color: green;
+
+$space: 4px;
+
+.lista-profs li{
+    color: $color;
+}
+
+.lista-profs{
+    margin: $space * 2;
+}
+
+h1 {
+    color: $h1-color;
+}

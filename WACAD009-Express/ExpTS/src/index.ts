@@ -21,6 +21,9 @@ app.set('views', `${process.cwd()}/src/views`);
 app.use(logger('complete'));
 
 app.use('/img', express.static(`${process.cwd()}/public/img`));
+app.use('/css', express.static(`${process.cwd()}/public/css`));
+app.use('/js', express.static(`${process.cwd()}/public/js`));
+
 
 app.use(router);
 
