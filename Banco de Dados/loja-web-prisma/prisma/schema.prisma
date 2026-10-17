@@ -1,0 +1,120 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "mysql"
+}
+
+// CLIENTE
+model Cliente {
+  id_cliente      Int      @id @default(autoincrement())
+  nome_completo   String   @db.VarChar(150)
+  cpf             String   @unique @db.VarChar(14)
+  celular         String   @db.VarChar(20)
+  email           String   @unique @db.VarChar(100)
+  data_nascimento DateTime @db.Date
+
+  enderecos Endereco[]
+  compras   Compra[]
+
+  @@map("cliente")
+}
+
+// ENDERECO
+model Endereco {
+  id_endereco Int     @id @default(autoincrement())
+  id_cliente  Int
+  logradouro  String  @db.VarChar(150)
+  numero      String  @db.VarChar(20)
+  complemento String? @db.VarChar(100)
+  bairro      String  @db.VarChar(100)
+  cidade      String  @db.VarChar(100)
+  estado      String  @db.VarChar(50)
+  cep         String  @db.VarChar(10)
+
+  cliente Cliente  @relation(fields: [id_cliente], references: [id_cliente])
+  compras Compra[]
+
+  @@map("endereco")
+}
+
+// CATEGORIA
+model Categoria {
+  id_categoria   Int    @id @default(autoincrement())
+  nome_categoria String @db.VarChar(100)
+
+  subcategorias Subcategoria[]
+
+  @@map("categoria")
+}
+
+// SUBCATEGORIA
+model Subcategoria {
+  id_subcategoria   Int    @id @default(autoincrement())
+  id_categoria      Int
+  nome_subcategoria String @db.VarChar(100)
+
+  categoria Categoria @relation(fields: [id_categoria], references: [id_categoria])
+  produtos  Produto[]
+
+  @@map("subcategoria")
+}
+
+// PRODUTO
+model Produto {
+  id_produto            Int     @id @default(autoincrement())
+  id_subcategoria       Int
+  modelo                String  @db.VarChar(150)
+  fabricante            String  @db.VarChar(150)
+  preco_base            Decimal @db.Decimal(10, 2)
+  quantidade_disponivel Int
+
+  subcategoria  Subcategoria  @relation(fields: [id_subcategoria], references: [id_subcategoria])
+  numeros_serie NumeroSerie[]
+  itens_compra  ItemCompra[]
+
+  @@map("produto")
+}
+
+// NUMERO_SERIE
+model NumeroSerie {
+  numero_serie String @id @db.VarChar(100)
+  id_produto   Int
+
+  produto Produto @relation(fields: [id_produto], references: [id_produto])
+
+  @@map("numero_serie")
+}
+
+// COMPRA
+model Compra {
+  id_compra         Int      @id @default(autoincrement())
+  id_cliente        Int
+  id_endereco       Int
+  data_hora_compra  DateTime @db.DateTime(0)
+  desconto_aplicado Decimal  @default(0) @db.Decimal(10, 2)
+  forma_pagamento   String   @db.VarChar(50)
+  total_compra      Decimal  @db.Decimal(10, 2)
+
+  cliente      Cliente      @relation(fields: [id_cliente], references: [id_cliente])
+  endereco     Endereco     @relation(fields: [id_endereco], references: [id_endereco])
+  itens_compra ItemCompra[]
+
+  @@map("compra")
+}
+
+// ITEM_COMPRA
+model ItemCompra {
+  id_item_compra Int     @id @default(autoincrement())
+  id_compra      Int
+  id_produto     Int
+  quantidade     Int
+  preco_unitario Decimal @db.Decimal(10, 2)
+
+  compra  Compra  @relation(fields: [id_compra], references: [id_compra])
+  produto Produto @relation(fields: [id_produto], references: [id_produto])
+
+  @@map("item_compra")
+}
