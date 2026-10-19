@@ -1,5 +1,5 @@
 import { type Request, type Response } from "express"
-import { checkProductExists, CreateProduct, getAllProducts, getProduct, updateProduct } from "./product.service.js"
+import { checkProductExists, CreateProduct, getAllProducts, getProduct, updateProduct, deleteProduct } from "./product.service.js"
 import type { CreateProductDto, UpdateProductDto } from "./product.types.js"
 import { handleError } from "./products.errors.js"
 
@@ -52,6 +52,14 @@ const update = async (req: Request, res: Response ) => {
         handleError(err, res)
     }
 }
-const remove = async (req: Request, res: Response ) => {}
+const remove = async (req: Request, res: Response) => {
+    const id = req.params.id as string;
 
+    try {
+        await deleteProduct(id);
+        res.status(204).send();
+    } catch (err) {
+        handleError(err, res);
+    }
+};
 export default { index, create, read, update, remove}

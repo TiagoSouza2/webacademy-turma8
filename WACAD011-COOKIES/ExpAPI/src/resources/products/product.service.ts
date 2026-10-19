@@ -23,3 +23,10 @@ export const getProduct = async (id: string): Promise<Product|null> => {
 export const updateProduct = async (id: string, data: UpdateProductDto): Promise<Product> => {
     return prisma.product.update({data, where: {id}})
 }
+export const deleteProduct = async (id: string): Promise<void> => {
+    await prisma.product.delete({
+        where: {
+            id: id
+        }
+    });
+};
