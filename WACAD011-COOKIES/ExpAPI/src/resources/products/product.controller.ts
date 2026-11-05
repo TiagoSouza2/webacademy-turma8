@@ -52,6 +52,7 @@ const update = async (req: Request, res: Response ) => {
         handleError(err, res)
     }
 }
+
 const remove = async (req: Request, res: Response) => {
     const id = req.params.id as string;
 
