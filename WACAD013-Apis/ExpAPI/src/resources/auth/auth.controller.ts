@@ -26,11 +26,21 @@ const login = async (req: Request, res: Response) => {
 
     req.session.userId = user.id;
     req.session.userTypeId = user.userTypeId;
+    res.status(200)
   } catch (err) {
     handleError(err, res);
   }
 };
 
-const logout = async (req: Request, res: Response) => {};
+const logout = async (req: Request, res: Response) => {
+  req.session.destroy((err) => {
+    if (err) {
+      console.log(err);
+      res.status(400)
+    } else {
+      res.status(200)
+    }
+  });
+};
 
 export default { signup, login, logout };
