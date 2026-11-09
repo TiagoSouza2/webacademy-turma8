@@ -1,11 +1,12 @@
-type CartSummaryProps = {
-  quantidade: number;
-  total: number;
-};
+
+interface CartSummaryProps {
+  quantidadeTotal: number;
+  valorTotal: number;
+}
 
 export function CartSummary({
-  quantidade,
-  total,
+  quantidadeTotal,
+  valorTotal,
 }: CartSummaryProps) {
   return (
     <div className="card mb-4 border-0 shadow-sm rounded-4">
@@ -15,11 +16,11 @@ export function CartSummary({
         </h5>
 
         <p className="card-text fw-medium">
-          Quantidade total: {quantidade}
+          Quantidade total: {quantidadeTotal}
         </p>
 
         <p className="card-text fw-medium">
-          Valor total: R$ {total.toFixed(2)}
+          Valor total: R${valorTotal.toFixed(2)}
         </p>
       </div>
     </div>

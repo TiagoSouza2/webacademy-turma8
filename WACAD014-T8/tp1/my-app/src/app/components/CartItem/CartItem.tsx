@@ -1,33 +1,44 @@
-type CartItemProps = {
-  nome: string;
-  preco: number;
-  quantidade: number;
-};
+
+import type { CartItemsType } from "../../types/cart";
+
+interface CartItemProps {
+  cartItem: CartItemsType;
+  removeItemFromCart: (id: string) => void;
+}
 
 export function CartItem({
-  nome,
-  preco,
-  quantidade,
+  cartItem,
+  removeItemFromCart,
 }: CartItemProps) {
+  const getProductTotal = (
+    price: number,
+    quantity: number
+  ): number => price * quantity;
+
   return (
-    <div className="card mb-3 border-0 shadow-sm rounded-4">
-      <div className="card-body">
-        <h6 className="card-title fw-semibold">
-          {nome}
-        </h6>
+    <tr>
+      <td>{cartItem.nome}</td>
 
-        <p className="mb-1">
-          Preço: R$ {preco.toFixed(2)}
-        </p>
+      <td>R$ {cartItem.preco.toFixed(2)}</td>
 
-        <p className="mb-1">
-          Quantidade: {quantidade}
-        </p>
+      <td>{cartItem.quantidade}</td>
 
-        <p className="fw-bold mb-0">
-          Subtotal: R$ {(preco * quantidade).toFixed(2)}
-        </p>
-      </div>
-    </div>
+      <td>
+        R$ {getProductTotal(
+          cartItem.preco,
+          cartItem.quantidade
+        ).toFixed(2)}
+      </td>
+
+      <td>
+        <button
+          className="btn btn-danger btn-sm"
+          type="button"
+          onClick={() => removeItemFromCart(cartItem.id)}
+        >
+          Remover
+        </button>
+      </td>
+    </tr>
   );
 }
