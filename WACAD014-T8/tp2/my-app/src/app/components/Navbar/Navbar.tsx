@@ -1,0 +1,73 @@
+
+"use client";
+
+import Link from "next/link";
+import { usePathname, useRouter } from "next/navigation";
+
+export function Navbar() {
+  const pathname = usePathname();
+  const router = useRouter();
+
+  const handleLogout = (): void => {
+    router.push("/login");
+  };
+
+  if (pathname === "/login" || pathname === "/register") {
+    return null;
+  }
+
+  return (
+    <nav className="navbar navbar-expand-md bg-body border-bottom sticky-top">
+      <div className="container-fluid">
+        <Link className="navbar-brand fw-bold" href="/">
+          WA Loja
+        </Link>
+
+        <button
+          className="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarCollapse"
+          aria-controls="navbarCollapse"
+          aria-expanded="false"
+          aria-label="Abrir menu"
+        >
+          <span className="navbar-toggler-icon"></span>
+        </button>
+
+        <div
+          className="collapse navbar-collapse"
+          id="navbarCollapse"
+        >
+          <ul className="navbar-nav me-auto mb-2 mb-md-0">
+            <li className="nav-item">
+              <Link className="nav-link" href="/">
+                Início
+              </Link>
+            </li>
+
+            <li className="nav-item">
+              <Link className="nav-link" href="/cart">
+                Carrinho
+              </Link>
+            </li>
+
+            <li className="nav-item">
+              <Link className="nav-link" href="/favorites">
+                Favoritos
+              </Link>
+            </li>
+          </ul>
+
+          <button
+            className="btn btn-primary rounded-3"
+            type="button"
+            onClick={handleLogout}
+          >
+            Sair
+          </button>
+        </div>
+      </div>
+    </nav>
+  );
+}
